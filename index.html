@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101114" />
+  <meta name="description" content="A cozy, customizable AI companion studio." />
+  <title>mori — your little corner of the internet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="mori home"><span class="brand-mark">m<span>o</span></span><span class="brand-word">mori<span class="brand-dot">.</span></span></a>
+      <div class="top-meta"><span class="live-dot"></span><span id="connectionStatus">YOUR QUIET CORNER</span></div>
+      <div class="top-actions"><button class="icon-button" id="searchButton" title="Search the web" aria-label="Search the web"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 4.2 4.2"/></svg></button><button class="icon-button" id="settingsButton" title="Companion settings" aria-label="Companion settings"><svg viewBox="0 0 24 24"><path d="M12 8.7a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Z"/><path d="m19.4 13.5 1.1.9-1.6 2.8-1.3-.5a7.8 7.8 0 0 1-1.6.9l-.2 1.4h-3.3l-.2-1.4a7.8 7.8 0 0 1-1.6-.9l-1.3.5-1.6-2.8 1.1-.9a7.2 7.2 0 0 1 0-1.9l-1.1-.9 1.6-2.8 1.3.5a7.8 7.8 0 0 1 1.6-.9l.2-1.4h3.3l.2 1.4a7.8 7.8 0 0 1 1.6.9l1.3-.5 1.6 2.8-1.1.9a7.2 7.2 0 0 1 0 1.9Z" transform="translate(-1 -1) scale(.96)"/></svg></button><div class="profile-dot">Y</div></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="left-rail">
+        <div class="rail-label">YOUR STUDIO</div>
+        <button class="rail-item active" data-tab="companion"><span class="rail-icon">✳</span> Companion</button>
+        <button class="rail-item" data-tab="memories"><span class="rail-icon">▤</span> Memories</button>
+        <div class="rail-spacer"></div>
+        <div class="rail-card"><div class="rail-card-icon">☼</div><div><b>A little note</b><p>Your conversations stay in this browser.</p></div></div>
+        <div class="rail-footer"><span class="status-pip"></span> PRIVATE BY DESIGN</div>
+      </aside>
+
+      <section class="pet-stage" aria-label="Interactive companion scene">
+        <div class="stage-top"><div><div class="eyebrow">A MOMENT WITH <span id="stageName">MORI</span></div><div class="stage-title" id="greeting">A little company<br/>for your day.</div></div><button class="stage-menu" id="randomMood" title="Give your companion a new mood">···</button></div>
+        <div class="sun-orb"></div><div class="stage-glow"></div><div class="floaty floaty-one">✦</div><div class="floaty floaty-two">✧</div><div class="floaty floaty-three">·</div>
+        <div class="pet-wrap" id="petWrap" aria-label="Mori, an animated little forest spirit" role="button" tabindex="0">
+          <div class="pet-shadow"></div>
+          <div class="pet">
+            <div class="pet-ear ear-left"></div><div class="pet-ear ear-right"></div>
+            <div class="pet-body"><div class="pet-belly"></div><div class="pet-cheek cheek-left"></div><div class="pet-cheek cheek-right"></div><div class="eye eye-left"><i></i></div><div class="eye eye-right"><i></i></div><div class="pet-mouth" id="petMouth"></div><div class="pet-brow brow-left"></div><div class="pet-brow brow-right"></div><div class="pet-blush blush-left"></div><div class="pet-blush blush-right"></div><div class="body-sheen"></div></div>
+            <div class="pet-arm arm-left"></div><div class="pet-arm arm-right"></div><div class="pet-feet"><i></i><i></i></div><div class="pet-tail"></div>
+            <div class="pet-leaf leaf-one"></div><div class="pet-leaf leaf-two"></div>
+          </div>
+        </div>
+        <div class="pet-caption"><span class="caption-spark">✦</span><span id="moodLabel">feeling mellow</span><span class="caption-divider"></span><span>tap to say hello</span></div>
+        <div class="stage-controls"><button class="stage-control" id="petWave"><span>♡</span> Give a pat</button><button class="stage-control" id="danceButton"><span>♫</span> Little dance</button></div>
+        <div class="stage-bottom"><span>✿ &nbsp; a soft place to land</span><span class="stage-version">COMPANION STUDY № 01</span></div>
+      </section>
+
+      <section class="chat-panel" aria-label="Conversation">
+        <div class="chat-head"><div class="chat-avatar">✳</div><div class="chat-person"><b id="chatName">Mori</b><span><i class="online-dot"></i><span id="petStatus">Here with you</span></span></div><button class="chat-more" id="clearChat" title="Clear conversation">↺</button></div>
+        <div class="chat-content" id="chatMessages" aria-live="polite">
+          <div class="day-divider"><span>TODAY</span></div>
+          <article class="message pet-message"><div class="message-avatar">✳</div><div><div class="bubble">Hey, you made it. I’m glad you’re here. What’s on your mind? <span class="bubble-spark">✦</span></div><div class="message-time">just now</div></div></article>
+          <div class="suggestions" id="suggestions"><div class="suggestion-label">A FEW PLACES TO START</div><button class="suggestion">Tell me a tiny story</button><button class="suggestion">Help me think something through</button><button class="suggestion">What should we make today?</button></div>
+        </div>
+        <div class="chat-tools"><button class="tool-button" id="screenButton" title="Share a screen snapshot"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="13" rx="2"/><path d="M8 21h8m-4-3.5V21"/></svg><span>Screen</span></button><button class="tool-button" id="cameraButton" title="Take a camera snapshot"><svg viewBox="0 0 24 24"><path d="M4 8.5h3l1.5-2h7l1.5 2h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span>Camera</span></button><button class="tool-button" id="voiceButton" title="Start voice input"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-3 0h6"/></svg><span>Voice</span></button><div class="tools-spacer"></div><button class="tool-button tool-search" id="chatSearch" title="Search the web"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 4.2 4.2"/></svg><span>Search</span></button></div>
+        <form class="composer" id="chatForm"><textarea id="messageInput" rows="1" placeholder="Say something to Mori…" aria-label="Message Mori"></textarea><div class="composer-bottom"><span class="composer-hint">↵ to send <span>·</span> shift + ↵ for a new line</span><button class="send-button" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24"><path d="M4 12 20 4l-5 16-3-7-8-1Z"/><path d="m12 13 4-4"/></svg></button></div></form>
+        <div class="chat-foot"><span>YOUR COMPANION, YOUR RULES</span><button id="openSettingsFoot">PERSONALIZE ↗</button></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="settingsModal" hidden>
+    <section class="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-head"><div><div class="eyebrow">MAKE IT YOURS</div><h2 id="settingsTitle">Companion settings</h2></div><button class="close-modal" data-close aria-label="Close settings">×</button></div>
+      <div class="settings-tabs"><button class="setting-tab selected" data-settings-tab="identity">Identity</button><button class="setting-tab" data-settings-tab="connection">AI connection</button><button class="setting-tab" data-settings-tab="privacy">Privacy</button></div>
+      <div class="settings-body" data-settings-panel="identity">
+        <label class="field-label">NAME<input id="nameField" maxlength="24" value="Mori" /></label>
+        <label class="field-label">PERSONALITY & STYLE<textarea id="promptField" rows="4" placeholder="e.g. Warm, curious, concise, and a little whimsical."></textarea><small>These preferences shape the conversation; your AI provider’s own safety rules still apply.</small></label>
+        <div class="field-label">LOOK & FEEL<div class="swatches"><button class="swatch selected" data-look="moss" aria-label="Moss green"></button><button class="swatch lilac" data-look="lilac" aria-label="Lilac"></button><button class="swatch peach" data-look="peach" aria-label="Peach"></button><button class="swatch ocean" data-look="ocean" aria-label="Ocean"></button><button class="swatch night" data-look="night" aria-label="Midnight"></button></div></div>
+        <label class="field-label">VOICE<select id="voiceSelect"><option value="">System default</option></select><small>Voice playback uses your device’s built-in speech synthesis.</small></label>
+        <label class="toggle-row"><span><b>Read replies aloud</b><small>Speak each response automatically</small></span><input id="speakToggle" type="checkbox" /></label>
+      </div>
+      <div class="settings-body" data-settings-panel="connection" hidden>
+        <div class="notice"><span>⌘</span><p>Connect an OpenAI-compatible chat endpoint. Your key is stored only for this browser tab and sent to the endpoint you choose.</p></div>
+        <label class="field-label">API BASE URL<input id="endpointField" type="url" placeholder="https://api.openai.com/v1" autocomplete="url" /></label>
+        <label class="field-label">MODEL<input id="modelField" placeholder="e.g. gpt-4o-mini" autocomplete="off" /></label>
+        <label class="field-label">API KEY<input id="keyField" type="password" placeholder="Paste your own API key" autocomplete="new-password" /><small>Never share your key. Calls go directly from this browser to your configured provider.</small></label>
+        <div class="connection-actions"><button class="secondary-button" id="testConnection">Test connection</button><span id="connectionNote">Without a key, Mori uses a small built-in demo chat.</span></div>
+        <p class="fine-print">Provider availability, pricing, content policies, and image-generation features depend on the service you use. This demo does not bypass provider safeguards or generate images.</p>
+      </div>
+      <div class="settings-body" data-settings-panel="privacy" hidden>
+        <div class="privacy-row"><span class="privacy-icon">◉</span><div><b>Screen & camera</b><p>Only shared after you press a button. A still snapshot is attached to one message; nothing streams or records in the background.</p></div></div>
+        <div class="privacy-row"><span class="privacy-icon">⌁</span><div><b>Conversation</b><p>Chat history stays in this tab and clears when you close it or choose reset. API requests go to your selected provider.</p></div></div>
+        <div class="privacy-row"><span class="privacy-icon">⌕</span><div><b>Web search</b><p>Search opens a new DuckDuckGo tab with your query. Search terms are shared with that service.</p></div></div>
+        <button class="secondary-button danger-button" id="resetData">Clear conversation & settings</button>
+      </div>
+      <div class="modal-actions"><button class="text-button" data-close>Cancel</button><button class="primary-button" id="saveSettings">Save changes <span>↗</span></button></div>
+    </section>
+  </div>
+  <div class="media-backdrop" id="mediaModal" hidden><section class="media-dialog" role="dialog" aria-modal="true"><div class="modal-head"><div><div class="eyebrow" id="mediaEyebrow">ONLY WHEN YOU CHOOSE</div><h2 id="mediaTitle">Share a screen snapshot</h2></div><button class="close-modal" data-media-close aria-label="Close">×</button></div><p id="mediaDescription">Choose a screen or window to share. Mori sees one still image only when you confirm.</p><video id="mediaVideo" autoplay muted playsinline></video><div class="modal-actions"><button class="text-button" data-media-close>Cancel</button><button class="primary-button" id="captureMedia">Use this snapshot <span>↗</span></button></div></section></div>
+  <script src="app.js"></script>
+</body>
+</html>
